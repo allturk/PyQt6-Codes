@@ -7,15 +7,15 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle('Pyside6 Signal App')
         self.button = QPushButton('Click Me')
-        self.button_is_checked=True
-        self.button.setCheckable(True)
-        self.button.released.connect(self.the_button_was_released)
-        self.button.setChecked(self.button_is_checked)
+        self.button.clicked.connect(self.the_button_was_clicked)
+
         self.setCentralWidget(self.button)
 
-    def the_button_was_released(self):
-        self.button_is_checked=self.button.isChecked()
-        print(self.button_is_checked)
+    def the_button_was_clicked(self):
+        self.button.setText("You already clicked me!")
+        self.button.setEnabled(False)
+
+        self.setWindowTitle("My Oneshot App")
 
 app= QApplication(sys.argv)
 window = MainWindow()
