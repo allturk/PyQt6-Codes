@@ -9,8 +9,10 @@ import time
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QDialog
 
-LBL_FONT=QtGui.QFont("Times",10,QtGui.QFont.Weight.Bold,True)
-FONT=QtGui.QFont("Arial",10,QtGui.QFont.Weight.Bold)
+LBL_FONT = QtGui.QFont("Times", 10, QtGui.QFont.Weight.Bold, True)
+FONT = QtGui.QFont("Arial", 10, QtGui.QFont.Weight.Bold)
+
+
 class Ui_Dialog(QDialog):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -94,7 +96,7 @@ class Ui_Dialog(QDialog):
         Dialog.setWindowTitle(_translate("Dialog", "Radio Button Example"))
         self.label.setText(_translate("Dialog", "Choose Your Book"))
         self.label_2.setText(_translate("Dialog", "Choose Your Payment Method"))
-        self.lbl_result.setText(_translate("Dialog", "Chosen Book:  Chosen Payment Method: "))
+        self.lbl_result.setText(_translate("Dialog", "Chosen Book:  ---  Chosen Payment Method: "))
         self.radioButton.setText(_translate("Dialog", "Python"))
         self.rbtn_java.setText(_translate("Dialog", "Java"))
         self.rd_jscript.setText(_translate("Dialog", "JavaScript"))
@@ -106,15 +108,13 @@ class Ui_Dialog(QDialog):
         selected1 = ""
         selected2 = ""
         for i in range(self.vbox1.count()):
-            item1=self.vbox1.itemAt(i).widget()
+            item1 = self.vbox1.itemAt(i).widget()
             if item1.isChecked():
-
-
                 for i in range(self.vbox2.count()):
-                    item2=self.vbox2.itemAt(i).widget()
+                    item2 = self.vbox2.itemAt(i).widget()
                     if item2.isChecked():
-                        selected1=item1.text()
-                        selected2=item2.text()
+                        selected1 = item1.text()
+                        selected2 = item2.text()
         # if self.radioButton.isChecked() == True:
         #     selected1 = "Python"
         # if self.rbtn_java.isChecked() == True:
@@ -131,7 +131,7 @@ class Ui_Dialog(QDialog):
         # result.append(selected1)
         # result.append(selected2)
         # self.print_result(result)
-        self.lbl_result.setText(f"Chosen Book: {selected1} Chosen Payment Method: {selected2}")
+        self.lbl_result.setText(f'Chosen Book: {selected1} ---  Chosen Payment Method: {selected2}')
 
     # def print_result(self,result):
     #     self.lbl_result.setText(f"Chosen Book: {result[0]} and Chosen Payment Method: {result[1]}")
